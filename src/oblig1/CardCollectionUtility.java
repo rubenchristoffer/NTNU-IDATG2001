@@ -92,6 +92,11 @@ public final class CardCollectionUtility {
 				.count() == 1; // Return true if only 1 suit type
 	}
 	
+	/**
+	 * Gets a single string where each card is separated by comma.
+	 * @param cardCollection is the collection of cards
+	 * @return a string where each card is separated by comma
+	 */
 	public static String getJoinedString (Collection<Card> cardCollection) {
 		return cardCollection.stream().map(Card::getDetails).collect(Collectors.joining(", "));
 	}
