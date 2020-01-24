@@ -20,6 +20,10 @@ public class Deck {
 		}
 	}
 	
+	public List<Card> getCards () {
+		return Collections.unmodifiableList(cards);
+	}
+	
 	public List<Card> assign (int n) {
 		// Argument validation
 		if (n < 1 || n > 52)
@@ -29,47 +33,6 @@ public class Deck {
 		Collections.shuffle(returnList);
 		
 		return returnList.stream().filter(card -> returnList.indexOf(card) < n).collect(Collectors.toList());
-	}
-	
-	public void printSpareCards () {
-		cards.stream().filter(card -> card.getSuit() == 'S').forEach(System.out::println);
-	}
-	
-	public List<Card> collectHeartCards () {
-		return cards.stream().filter(card -> card.getSuit() == 'H').collect(Collectors.toList());
-	}
-	
-	public List<Character> getCardSuits () {
-		return cards.stream().map(card -> card.getSuit()).collect(Collectors.toList());
-	}
-	
-	public int getCardFaceValueSum () {
-		return cards.stream().reduce(0, (sum, card) -> sum + card.getFace(), (int1, int2) -> int1 + int2);
-	}
-	
-	public boolean doesQueenOfSpadesExist () {
-		return cards.stream().anyMatch(card -> card.getFace() == 12 && card.getSuit() == 'S');
-	}
-	
-	public boolean hasPokerFlush () {
-		long nrSpades = cards.stream().filter(card -> card.getSuit() == 'S').count();
-
-		if (nrSpades >= 5) 
-			return true;
-		
-		long nrHearts = cards.stream().filter(card -> card.getSuit() == 'H').count();
-		
-		if (nrHearts >= 5) 
-			return true;
-		
-		long nrDiamonds = cards.stream().filter(card -> card.getSuit() == 'D').count();
-		
-		if (nrDiamonds >= 5)
-			return true;
-		
-		long nrClubs = cards.stream().filter(card -> card.getSuit() == 'C').count();
-		
-		return nrClubs >= 5;
 	}
 	
 }
