@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Class containing task description
  * and is used for testing the various tasks. 
- * @author ruben
+ * @author Ruben
  */
 public final class oblig1 {
 
