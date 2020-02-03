@@ -1,2 +1,2 @@
-# bidata_prog2_oblig1
-Obligatorisk oppgave 1 i Programmering 2 NTNU
+# Programmering 2 Dataingeniør NTNU 2020
+Dette repositoryet inneholder obligatoriske oppgaver i faget Programmering 2 (IDATG2001) for våren 2020. 
