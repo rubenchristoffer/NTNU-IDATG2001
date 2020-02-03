@@ -1,2 +1,2 @@
-# Dataingeniør NTNU 2020 - Programmering 2
-Dette repositoryet inneholder obligatoriske oppgaver i faget Programmering 2 (IDATG2001) for våren 2020. 
+# Computer Engineering NTNU 2020 - Programming 2
+This repository contains obligatory tasks for the <a href="https://www.ntnu.edu/studies/courses/IDATG2001#tab=omEmnet">Programming 2 course (IDATG2001)</a>

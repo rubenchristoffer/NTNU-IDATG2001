@@ -7,7 +7,7 @@ import java.util.List;
  * and is used for testing the various tasks. 
  * @author Ruben
  */
-public final class oblig1 {
+public final class Oblig1 {
 
 	/* ### OBLIG 1 TASKS
 	 	The tasks are implemented in the CardCollectionUtility class
