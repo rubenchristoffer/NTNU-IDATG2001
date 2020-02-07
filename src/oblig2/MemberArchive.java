@@ -47,9 +47,20 @@ public class MemberArchive {
 				.findAny()
 				.getAsInt();
 	}
-
-	public void checkMembers (LocalDate date) {
+	
+	private BonusMember tryUpgradingMember (BonusMember member, LocalDate localDate) {
+		int points = member.findQualificationPoints(localDate);
 		
+		if (points >= GOLD_LIMIT && !(member instanceof GoldMember))
+			return new GoldMember(member.getMemberNo(), member.getPersonals(), member.getEnrolledDate(), member.getBonuspoints());
+		if (points >= SILVER_LIMIT && !(member instanceof SilverMember))
+			return new SilverMember(member.getMemberNo(), member.getPersonals(), member.getEnrolledDate(), member.getBonuspoints());
+		
+		return member;
+	}
+	
+	public void checkMembers (LocalDate localDate) {
+		membersMap.values().forEach(m -> membersMap.put(m.getMemberNo(), tryUpgradingMember(m, localDate)));
 	}
 	
 }
