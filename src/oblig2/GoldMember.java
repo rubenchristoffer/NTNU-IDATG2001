@@ -4,10 +4,10 @@ import java.time.LocalDate;
 
 public class GoldMember extends BonusMember {
 
-	public GoldMember(int bonuspoints, Personals personals, LocalDate enrolledDate) {
-		super(bonuspoints, personals, enrolledDate);
+	public GoldMember(int memberNo, Personals personals, LocalDate enrolledDate, int bonusPoints) {
+		super(memberNo, personals, enrolledDate, bonusPoints);
 	}
-	
+
 	@Override
 	public void registerPoints(int bonusPoints) {
 		super.registerPoints((int)(bonusPoints * BonusMember.FACTOR_GOLD));

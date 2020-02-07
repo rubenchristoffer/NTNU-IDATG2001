@@ -4,8 +4,8 @@ import java.time.LocalDate;
 
 public class SilverMember extends BonusMember {
 
-	public SilverMember(int bonuspoints, Personals personals, LocalDate enrolledDate) {
-		super(bonuspoints, personals, enrolledDate);
+	public SilverMember(int memberNo, Personals personals, LocalDate enrolledDate, int bonusPoints) {
+		super(memberNo, personals, enrolledDate, bonusPoints);
 	}
 	
 	@Override

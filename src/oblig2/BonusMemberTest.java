@@ -39,12 +39,12 @@ class BonusMemberTest {
         b1.registerPoints(30000);
         System.out.println("Test nr 1: No qualification points");
         assertEquals(0, b1.findQualificationPoints(testDate));
-        assertEquals(30000, b1.getPoints());
+        assertEquals(30000, b1.getBonuspoints());
 
         System.out.println("Test nr 2: Adding 15 000 points, still no qualification points");
         b1.registerPoints(15000);
         assertEquals(0, b1.findQualificationPoints(testDate));
-        assertEquals(45000, b1.getPoints());
+        assertEquals(45000, b1.getBonuspoints());
     }
 
     /**
@@ -60,26 +60,26 @@ class BonusMemberTest {
 
         System.out.println("Test nr 3: Tove should qualify");
         assertEquals(30000, b2.findQualificationPoints(testDate));
-        assertEquals(30000, b2.getPoints());
+        assertEquals(30000, b2.getBonuspoints());
 
         System.out.println("Test nr 4: Tove as silver member");
         SilverMember b3 = new SilverMember(b2.getMemberNo(), b2.getPersonals(),
-                b2.getEnrolledDate(), b2.getPoints());
+                b2.getEnrolledDate(), b2.getBonuspoints());
         b3.registerPoints(50000);
         assertEquals( 90000, b3.findQualificationPoints(testDate));
-        assertEquals( 90000, b3.getPoints());
+        assertEquals( 90000, b3.getBonuspoints());
 
         System.out.println("Test nr 5: Tove as gold member");
         GoldMember b4 = new GoldMember(b3.getMemberNo(), b3.getPersonals(),
-                b3.getEnrolledDate(), b3.getPoints());
+                b3.getEnrolledDate(), b3.getBonuspoints());
         b4.registerPoints(30000);
         assertEquals( 135000, b4.findQualificationPoints(testDate));
-        assertEquals( 135000, b4.getPoints());
+        assertEquals( 135000, b4.getBonuspoints());
 
         System.out.println("Test nr 6: Changed test date on Tove");
         testDate = LocalDate.of(2008, 12, 10);
         assertEquals( 0, b4.findQualificationPoints(testDate));
-        assertEquals( 135000, b4.getPoints());
+        assertEquals( 135000, b4.getBonuspoints());
 
     }
 
