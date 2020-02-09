@@ -9,6 +9,7 @@ package oblig2;
  * passowrd. The Password is not case sensitive.
  */
 class Personals {
+	
   private final String surname;
   private final String firstname;
   private final String emailAddress;
