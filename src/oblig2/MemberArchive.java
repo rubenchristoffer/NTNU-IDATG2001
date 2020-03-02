@@ -94,6 +94,15 @@ public class MemberArchive {
 		membersMap.values().forEach(m -> membersMap.put(m.getMemberNo(), tryUpgradingMember(m, localDate)));
 	}
 	
+	/**
+	 * Gets member based on membership number.
+	 * @param memberNo is the membership number
+	 * @return BonusMember object
+	 */
+	public BonusMember getMember (int memberNo) {
+		return membersMap.get(memberNo);
+	}
+	
 	private int findAvailableNo() {
 		return randomGenerator
 				.ints(0, 1000000)
