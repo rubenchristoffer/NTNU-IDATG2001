@@ -1,6 +1,6 @@
 package oblig2;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.time.LocalDate;
 
@@ -43,7 +43,7 @@ public class MemberArchiveTest {
 		int id1 = memberArchive.addMember(person1, date1);
 		int id2 = memberArchive.addMember(person2, date2);
 		int id3 = memberArchive.addMember(person3, date3);
-		int id4 = memberArchive.addMember(person3, date3);
+		int id4 = memberArchive.addMember(person4, date4);
 		
 		memberArchive.registerPoints(id2, (int)MemberArchive.SILVER_LIMIT + 1);
 		memberArchive.registerPoints(id3, (int)MemberArchive.SILVER_LIMIT + 1);
