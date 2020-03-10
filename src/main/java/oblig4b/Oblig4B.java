@@ -21,7 +21,7 @@ public class Oblig4B extends Application {
 		MEMBER_ARCHIVE.addMember(new Personals("Lorem", "Ipsum", "lorem@ipsum.com", "loremipsum"), LocalDate.now());
 		MEMBER_ARCHIVE.addMember(new Personals("Ola", "Nordmann", "olanordmann@live.no", "passord123"), LocalDate.of(2000, 2, 22));
 		MEMBER_ARCHIVE.addMember(new Personals("Kari", "Tråd", "karitraad@gmail.com", "passord123"), LocalDate.of(2019, 8, 29));
-		MEMBER_ARCHIVE.addMember(new Personals("Nils", "Bakkestad", "nilsbakkestad@hotmail.com", "passord123"), LocalDate.of(2019, 8, 29));
+		MEMBER_ARCHIVE.addMember(new Personals("Nils", "Bakkestad", "nilsbakkestad@hotmail.com", "passord123"), LocalDate.of(2018, 1, 29));
 	}
 	
 	@Override

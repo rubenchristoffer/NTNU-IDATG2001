@@ -6,12 +6,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="556.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oblig4b.MainController">
-   <!-- <userData>
+   <userData>
         <fx:reference source="controller" />
     </userData>
     <properties>
         <maincontroller><fx:reference source="controller" /></maincontroller>
-    </properties>-->
+    </properties>
    <children>
       <TableView fx:id="table" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="35.0">
         <columns>
@@ -29,25 +29,20 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem mnemonicParsing="false" onAction="#quit" text="Quit" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Table">
             <items>
-              <MenuItem mnemonicParsing="false" text="Add member" />
-                  <MenuItem mnemonicParsing="false" text="Inspect selected member" />
-                  <MenuItem mnemonicParsing="false" text="Delete selected member" />
+              <MenuItem mnemonicParsing="false" onAction="#addMember" text="Add member" />
+                  <MenuItem mnemonicParsing="false" onAction="#inspectSelectedMember" text="Inspect selected member" />
+                  <MenuItem mnemonicParsing="false" onAction="#deleteSelectedMember" text="Delete selected member" />
                   <Menu mnemonicParsing="false" text="Upgrade selected member to">
                     <items>
-                      <MenuItem mnemonicParsing="false" text="Silver" />
-                        <MenuItem mnemonicParsing="false" text="Gold" />
+                      <MenuItem mnemonicParsing="false" onAction="#upgradeMemberToSilver" text="Silver" />
+                        <MenuItem mnemonicParsing="false" onAction="#upgradeMemberToGold" text="Gold" />
                     </items>
                   </Menu>
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
             </items>
           </Menu>
         </menus>

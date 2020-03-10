@@ -29,6 +29,36 @@ public class MainController implements Initializable {
 		table.getColumns().get(4).setCellValueFactory(celldata -> new ReadOnlyObjectWrapper(celldata.getValue().getPersonals().getSurname()));
 	}
 	
+	@FXML
+	private void addMember () {
+		
+	}
+	
+	@FXML
+	private void inspectSelectedMember () {
+		
+	}
+	
+	@FXML
+	private void deleteSelectedMember () {
+		
+	}
+	
+	@FXML
+	private void upgradeMemberToSilver () {
+		
+	}
+	
+	@FXML
+	private void upgradeMemberToGold () {
+		
+	}
+	
+	@FXML
+	private void quit () {
+		System.exit(0);
+	}
+	
 	public void addBonusMembers (BonusMember ... bonusMembers) {
 		table.getItems().addAll(bonusMembers);
 	}
