@@ -125,8 +125,12 @@ public abstract class BonusMember {
 	 * @param basePoints is the amount of points
 	 * that should be awarded before any kind of
 	 * extra bonuses are accounted for
+	 * @throws IllegalArgumentException if basePoints are less than or equal to 0 because you can never subtract points
 	 */
 	public void registerPoints (int basePoints) {
+		if (basePoints <= 0)
+			throw new IllegalArgumentException("basePoints has to be over 0");
+		
 		this.bonusPoints += basePoints;
 	}
 

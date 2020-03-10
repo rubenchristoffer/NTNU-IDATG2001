@@ -75,8 +75,12 @@ class Personals {
    * @param password the password to test for
    * @return <code>true</code> if password is correct
    * <code>false</code> if password is wrong
+   * @throws IllegalArgumentException if password is null because password should never be null (it can be empty)
    */
   public boolean okPassword(String password) {
+	  if (password == null)
+		  throw new IllegalArgumentException("password cannot be null");
+	  
     return this.password.equalsIgnoreCase(password);
   }
 
