@@ -34,8 +34,18 @@ public abstract class BonusMember {
 	 * @param personals contains data about a member
 	 * @param enrolledDate is the enrollment date of the member
 	 * @param bonusPoints is the amount of bonus points the member has
+	 * @throws IllegalArgumentException if ints are less than 0 or if objects are null
 	 */
 	protected BonusMember(int memberNo, Personals personals, LocalDate enrolledDate, int bonusPoints) {
+		if (memberNo < 0)
+			throw new IllegalArgumentException("memberNo cannot be a negative number");
+		if (personals == null)
+			throw new IllegalArgumentException("personals cannot be null");
+		if (enrolledDate == null)
+			throw new IllegalArgumentException("enrolledDate cannot be null");
+		if (bonusPoints < 0)
+			throw new IllegalArgumentException("bonusPoints cannot be a negative number");
+		
 		this.memberNo = memberNo;
 		this.personals = personals;
 		this.enrolledDate = enrolledDate;

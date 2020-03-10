@@ -2,6 +2,7 @@ package oblig2;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.LocalDate;
@@ -27,6 +28,23 @@ class BonusMemberTest {
                  "ole.olsen@dot.com", "ole");
          this.tove = new Personals("Hansen", "Tove",
                  "tove.hansen@dot.com", "tove");
+    }
+    
+    /**
+     * This tests if constructor has the correct validation and throws
+     * exceptions when values passed are invalid.
+     */
+    @Test
+    void testConstructor () {
+    	System.out.println("Testing if constructor throws exceptions when wrong values are passed");
+    	
+    	assertThrows(IllegalArgumentException.class, () -> new BasicMember(0, null, null));
+    	assertThrows(IllegalArgumentException.class, () -> new BasicMember(-1, ole, testDate));
+    	assertThrows(IllegalArgumentException.class, () -> new BasicMember(0, null, testDate));
+    	assertThrows(IllegalArgumentException.class, () -> new BasicMember(0, ole, null));
+    	
+    	System.out.println("Testing if constructor does not throw exception when valid values are passed");
+    	new BasicMember(0, ole, testDate);
     }
 
     /**
