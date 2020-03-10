@@ -1,6 +1,7 @@
 package oblig2;
 
 import java.time.LocalDate;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -101,6 +102,14 @@ public class MemberArchive {
 	 */
 	public BonusMember getMember (int memberNo) {
 		return membersMap.get(memberNo);
+	}
+	
+	/**
+	 * Gets a collection of all the members in this archive.
+	 * @return collection of BonusMember objects
+	 */
+	public Collection<BonusMember> getMembers () {
+		return membersMap.values();
 	}
 	
 	private int findAvailableNo() {

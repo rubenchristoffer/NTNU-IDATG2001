@@ -8,7 +8,7 @@ package oblig2;
  * The password can be changed, but it then needs to be different than the old
  * passowrd. The Password is not case sensitive.
  */
-class Personals {
+public class Personals {
 	
   private final String surname;
   private final String firstname;
