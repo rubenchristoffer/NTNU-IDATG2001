@@ -17,11 +17,19 @@ public class Oblig4B extends Application {
 	
 	public Oblig4B() {
 		// Add test members
-		MEMBER_ARCHIVE.addMember(new Personals("Peter", "Pan", "peterpan@gmail.com", "tingeling"), LocalDate.of(2019, 8, 29));
-		MEMBER_ARCHIVE.addMember(new Personals("Lorem", "Ipsum", "lorem@ipsum.com", "loremipsum"), LocalDate.now());
-		MEMBER_ARCHIVE.addMember(new Personals("Ola", "Nordmann", "olanordmann@live.no", "passord123"), LocalDate.of(2000, 2, 22));
-		MEMBER_ARCHIVE.addMember(new Personals("Kari", "Tråd", "karitraad@gmail.com", "passord123"), LocalDate.of(2019, 8, 29));
-		MEMBER_ARCHIVE.addMember(new Personals("Nils", "Bakkestad", "nilsbakkestad@hotmail.com", "passord123"), LocalDate.of(2018, 1, 29));
+		int id1 = MEMBER_ARCHIVE.addMember(new Personals("Peter", "Pan", "peterpan@gmail.com", "tingeling"), LocalDate.of(2019, 8, 29));
+		int id2 = MEMBER_ARCHIVE.addMember(new Personals("Lorem", "Ipsum", "lorem@ipsum.com", "loremipsum"), LocalDate.now());
+		int id3 = MEMBER_ARCHIVE.addMember(new Personals("Ola", "Nordmann", "olanordmann@live.no", "passord123"), LocalDate.of(2000, 2, 22));
+		int id4 = MEMBER_ARCHIVE.addMember(new Personals("Kari", "Tråd", "karitraad@gmail.com", "passord123"), LocalDate.of(2019, 8, 29));
+		int id5 = MEMBER_ARCHIVE.addMember(new Personals("Nils", "Bakkestad", "nilsbakkestad@hotmail.com", "passord123"), LocalDate.of(2018, 1, 29));
+		
+		MEMBER_ARCHIVE.getMember(id1).registerPoints(25000);
+		MEMBER_ARCHIVE.getMember(id2).registerPoints(50000);
+		MEMBER_ARCHIVE.getMember(id3).registerPoints(1000);
+		MEMBER_ARCHIVE.getMember(id4).registerPoints(100000);
+		MEMBER_ARCHIVE.getMember(id5).registerPoints(10000);
+		
+		MEMBER_ARCHIVE.checkMembers(LocalDate.of(2020, 3, 10));
 	}
 	
 	@Override
@@ -30,7 +38,7 @@ public class Oblig4B extends Application {
 			Parent fxmlRoot = FXMLLoader.load(getClass().getResource("main.fxml"));
 			
 			MainController controller = getMainController(fxmlRoot);
-			MEMBER_ARCHIVE.getMembers().forEach(member -> controller.addBonusMembers(member));
+			controller.setMemberArchive(MEMBER_ARCHIVE);
 			
 			primaryStage.setScene(new Scene(fxmlRoot, 600, 400));
 			primaryStage.setTitle("Oblig 4");

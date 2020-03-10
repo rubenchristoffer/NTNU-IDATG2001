@@ -9,11 +9,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import oblig2.BonusMember;
+import oblig2.MemberArchive;
 
 public class MainController implements Initializable {
 
 	@FXML
 	private TableView<BonusMember> table;
+	
+	private MemberArchive archive;
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
@@ -45,12 +48,12 @@ public class MainController implements Initializable {
 	}
 	
 	@FXML
-	private void upgradeMemberToSilver () {
+	private void upgradeQualifiedMembers () {
 		
 	}
 	
 	@FXML
-	private void upgradeMemberToGold () {
+	private void registerPointsSelectedMember () {
 		
 	}
 	
@@ -59,8 +62,9 @@ public class MainController implements Initializable {
 		System.exit(0);
 	}
 	
-	public void addBonusMembers (BonusMember ... bonusMembers) {
-		table.getItems().addAll(bonusMembers);
+	public void setMemberArchive (MemberArchive archive) {
+		this.archive = archive;
+		this.archive.getMembers().forEach(member -> table.getItems().add(member));
 	}
 	
 }

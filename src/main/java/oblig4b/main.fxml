@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.SeparatorMenuItem?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="556.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oblig4b.MainController">
    <userData>
@@ -35,14 +35,11 @@
           <Menu mnemonicParsing="false" text="Table">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#addMember" text="Add member" />
-                  <MenuItem mnemonicParsing="false" onAction="#inspectSelectedMember" text="Inspect selected member" />
-                  <MenuItem mnemonicParsing="false" onAction="#deleteSelectedMember" text="Delete selected member" />
-                  <Menu mnemonicParsing="false" text="Upgrade selected member to">
-                    <items>
-                      <MenuItem mnemonicParsing="false" onAction="#upgradeMemberToSilver" text="Silver" />
-                        <MenuItem mnemonicParsing="false" onAction="#upgradeMemberToGold" text="Gold" />
-                    </items>
-                  </Menu>
+              <MenuItem mnemonicParsing="false" onAction="#upgradeQualifiedMembers" text="Upgrade qualified members" />
+              <SeparatorMenuItem />
+              <MenuItem mnemonicParsing="false" onAction="#inspectSelectedMember" text="Inspect selected member" />
+              <MenuItem mnemonicParsing="false" onAction="#registerPointsSelectedMember" text="Register points for selected member" />
+              <MenuItem mnemonicParsing="false" onAction="#deleteSelectedMember" text="Delete selected member" />
             </items>
           </Menu>
         </menus>
