@@ -37,7 +37,10 @@ public class MainController implements Initializable {
 	private void addMember () {
 		new AddMemberDialog()
 		.showAndWait()
-		.ifPresent((data) -> System.out.println(data.getPersonals() + ", " + data.getLocalDate()));//archive.addMember(data.getPersonals(), data.getLocalDate()));
+		.ifPresent((data) -> {
+			int id = archive.addMember(data.getPersonals(), data.getLocalDate());
+			table.getItems().add(archive.getMember(id));
+		});
 	}
 	
 	@FXML
