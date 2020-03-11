@@ -29,10 +29,10 @@
       <Label text="Email:" GridPane.columnSpan="2" GridPane.rowIndex="2" />
       <Label text="Password:" GridPane.rowIndex="3" />
       <Label text="Date:" GridPane.rowIndex="4" />
-      <PasswordField promptText="e.g. t4FV39yy" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-      <DatePicker maxWidth="1.7976931348623157E308" promptText="e.g. 2/2/2020" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-      <TextField promptText="e.g. Bob" GridPane.columnIndex="1" />
-      <TextField promptText="e.g. Brown" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <TextField promptText="e.g. brown@gmail.com" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <PasswordField fx:id="passwordField" promptText="e.g. t4FV39yy" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <DatePicker fx:id="dateField" maxWidth="1.7976931348623157E308" promptText="e.g. 2/2/2020" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <TextField fx:id="firstnameField" promptText="e.g. Bob" GridPane.columnIndex="1" />
+      <TextField fx:id="surnameField" promptText="e.g. Brown" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <TextField fx:id="emailField" promptText="e.g. brown@gmail.com" GridPane.columnIndex="1" GridPane.rowIndex="2" />
    </children>
 </GridPane>

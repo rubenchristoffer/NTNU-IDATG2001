@@ -1,6 +1,7 @@
 package oblig4b;
 
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import javafx.beans.property.ReadOnlyObjectWrapper;
@@ -34,7 +35,9 @@ public class MainController implements Initializable {
 	
 	@FXML
 	private void addMember () {
-		new AddMemberDialog().showAndWait();
+		new AddMemberDialog()
+		.showAndWait()
+		.ifPresent((data) -> System.out.println(data.getPersonals() + ", " + data.getLocalDate()));//archive.addMember(data.getPersonals(), data.getLocalDate()));
 	}
 	
 	@FXML
