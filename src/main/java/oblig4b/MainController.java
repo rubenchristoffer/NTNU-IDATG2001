@@ -1,12 +1,17 @@
 package oblig4b;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableView;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import oblig2.BonusMember;
 import oblig2.MemberArchive;
@@ -44,7 +49,12 @@ public class MainController implements Initializable {
 	
 	@FXML
 	private void inspectSelectedMember () {
+		BonusMember selectedMember = table.getSelectionModel().getSelectedItem();
 		
+		if (selectedMember != null)
+			new InspectMemberDialog().showAndWait(selectedMember);
+		else
+			new Alert(AlertType.WARNING, "You need to select a member to inspect first").showAndWait();
 	}
 	
 	@FXML
@@ -54,7 +64,9 @@ public class MainController implements Initializable {
 	
 	@FXML
 	private void upgradeQualifiedMembers () {
-		
+		archive.checkMembers(LocalDate.now());
+		table.getItems().clear();
+		table.getItems().addAll(archive.getMembers());
 	}
 	
 	@FXML
@@ -69,7 +81,8 @@ public class MainController implements Initializable {
 	
 	public void setMemberArchive (MemberArchive archive) {
 		this.archive = archive;
-		this.archive.getMembers().forEach(member -> table.getItems().add(member));
+		
+		table.getItems().addAll(archive.getMembers());
 	}
 	
 }

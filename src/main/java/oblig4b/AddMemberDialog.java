@@ -30,13 +30,13 @@ public class AddMemberDialog extends Dialog<BonusMemberData> implements ChangeLi
 	private Node addButton;
 	
 	public AddMemberDialog () {
+		FXMLLoader loader = new FXMLLoader (getClass().getResource("add_member_dialog.fxml"));
+		loader.setController(this);
+		
 		try {
-			FXMLLoader loader = new FXMLLoader (getClass().getResource("add_member_dialog.fxml"));
-			loader.setController(this);
-			
 			getDialogPane().setContent(loader.load());
 		} catch (IOException e) {
-			e.printStackTrace();
+			throw new RuntimeException("Could not load FXML", e);
 		}
 		
 		setTitle("Add new member");
@@ -75,8 +75,6 @@ public class AddMemberDialog extends Dialog<BonusMemberData> implements ChangeLi
 
 	@Override
 	public void changed(ObservableValue<? extends Object> observable, Object oldValue, Object newValue) {
-		System.out.println("changed");
-		
 		addButton.setDisable(
 			firstnameField.getText().isEmpty() ||
 			surnameField.getText().isEmpty() ||
