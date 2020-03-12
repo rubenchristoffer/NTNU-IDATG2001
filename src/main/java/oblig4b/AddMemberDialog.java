@@ -63,6 +63,8 @@ public class AddMemberDialog extends Dialog<BonusMemberData> implements ChangeLi
 		passwordField.textProperty().addListener(this);
 		dateField.valueProperty().addListener(this);
 		
+		dateField.setValue(LocalDate.now());
+		
 		// A quite dirty way to get it to allow manual date input
 		// (without using the dropdown menu)
 		// This feature is sadly not supported by default
