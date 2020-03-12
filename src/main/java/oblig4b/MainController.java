@@ -8,10 +8,10 @@ import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
-import javafx.scene.control.TableView;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.cell.PropertyValueFactory;
 import oblig2.BonusMember;
 import oblig2.MemberArchive;
@@ -39,9 +39,7 @@ public class MainController implements Initializable {
 	
 	@FXML
 	private void addMember () {
-		new AddMemberDialog()
-		.showAndWait()
-		.ifPresent((data) -> {
+		new AddMemberDialog().showAndWait().ifPresent((data) -> {
 			int id = archive.addMember(data.getPersonals(), data.getLocalDate());
 			table.getItems().add(archive.getMember(id));
 		});
@@ -89,7 +87,34 @@ public class MainController implements Initializable {
 	
 	@FXML
 	private void registerPointsSelectedMember () {
+		BonusMember selectedMember = table.getSelectionModel().getSelectedItem();
 		
+		if (selectedMember != null) {
+			TextInputDialog registerPointsDialog = new TextInputDialog();
+			registerPointsDialog.setTitle("Register points");
+			registerPointsDialog.setHeaderText(String.format("Register points for %s %s", 
+					selectedMember.getPersonals().getFirstname(), selectedMember.getPersonals().getSurname()));
+			
+			registerPointsDialog.setContentText("Base points to register: ");
+			
+			registerPointsDialog.getEditor().textProperty().addListener((observable, oldValue, newValue) -> {
+				if (!newValue.matches("\\d*")) {
+					registerPointsDialog.getEditor().setText(newValue.replaceAll("[^\\d]", ""));
+				}
+				
+				if (newValue.startsWith("0"))
+					registerPointsDialog.getEditor().setText(newValue.replaceAll("^0+", ""));
+			});
+			
+			registerPointsDialog.showAndWait().ifPresent((value) -> {
+				if (!value.isEmpty()) {
+					archive.registerPoints(selectedMember.getMemberNo(), Integer.parseInt(value));
+					updateTable();
+				}
+			});
+		} else {
+			new Alert(AlertType.WARNING, "You need to select a member first in order to register points").showAndWait();
+		}
 	}
 	
 	@FXML
