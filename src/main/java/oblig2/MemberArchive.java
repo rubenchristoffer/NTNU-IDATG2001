@@ -125,7 +125,7 @@ public class MemberArchive {
 		
 		if (points >= GOLD_LIMIT && !(member instanceof GoldMember))
 			return new GoldMember(member.getMemberNo(), member.getPersonals(), member.getEnrolledDate(), member.getBonuspoints());
-		if (points >= SILVER_LIMIT && !(member instanceof SilverMember))
+		if (points >= SILVER_LIMIT && member instanceof BasicMember)
 			return new SilverMember(member.getMemberNo(), member.getPersonals(), member.getEnrolledDate(), member.getBonuspoints());
 		
 		return member;
