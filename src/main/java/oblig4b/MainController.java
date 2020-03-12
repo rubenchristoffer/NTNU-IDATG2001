@@ -59,14 +59,32 @@ public class MainController implements Initializable {
 	
 	@FXML
 	private void deleteSelectedMember () {
+		BonusMember selectedMember = table.getSelectionModel().getSelectedItem();
 		
+		if (selectedMember != null) {
+			Alert deleteAlert = new Alert(AlertType.WARNING, "", ButtonType.OK, ButtonType.CANCEL);
+			deleteAlert.setTitle("Delete member");
+			deleteAlert.setHeaderText("Are you sure?");
+			deleteAlert.setContentText(String.format("Are you sure you want to delete member %s %s (%d)?", 
+					selectedMember.getPersonals().getFirstname(), selectedMember.getPersonals().getSurname(), selectedMember.getMemberNo()));
+			
+			deleteAlert.showAndWait().ifPresent((buttonType) -> {
+				if (buttonType == ButtonType.OK) {
+					archive.deleteMember(selectedMember.getMemberNo());
+					
+					updateTable();
+				}
+			});
+		} else {
+			new Alert(AlertType.WARNING, "You need to select a member to delete first").showAndWait();
+		}
 	}
 	
 	@FXML
 	private void upgradeQualifiedMembers () {
 		archive.checkMembers(LocalDate.now());
-		table.getItems().clear();
-		table.getItems().addAll(archive.getMembers());
+		
+		updateTable();
 	}
 	
 	@FXML
@@ -79,10 +97,15 @@ public class MainController implements Initializable {
 		System.exit(0);
 	}
 	
+	private void updateTable () {
+		table.getItems().clear();
+		table.getItems().addAll(archive.getMembers());
+	}
+	
 	public void setMemberArchive (MemberArchive archive) {
 		this.archive = archive;
 		
-		table.getItems().addAll(archive.getMembers());
+		updateTable();
 	}
 	
 }

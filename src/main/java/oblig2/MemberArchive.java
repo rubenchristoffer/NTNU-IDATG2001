@@ -105,6 +105,14 @@ public class MemberArchive {
 	}
 	
 	/**
+	 * Deletes the member from the archive.
+	 * @param memberNo is the membership number
+	 */
+	public void deleteMember (int memberNo) {
+		membersMap.remove(memberNo);
+	}
+	
+	/**
 	 * Gets a collection of all the members in this archive.
 	 * @return collection of BonusMember objects
 	 */
