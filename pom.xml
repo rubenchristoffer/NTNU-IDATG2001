@@ -12,6 +12,12 @@
 					<exclude>**/*.java</exclude>
 				</excludes>
 			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
 		</resources>
 		<plugins>
 			<plugin>
@@ -80,6 +86,11 @@
 			<artifactId>junit-jupiter-api</artifactId>
 			<version>5.6.0</version>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.2.3</version>
 		</dependency>
 		<dependency>
 			<groupId>org.openjfx</groupId>
