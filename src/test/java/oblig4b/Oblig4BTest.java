@@ -21,7 +21,7 @@ public class Oblig4BTest extends ApplicationTest {
 	
 	@Test
 	public void testStartupScene () {
-		clickOn("#table");
+		clickOn("#table_lksdjgljkdfjhgdfjlghdfjkgdfjk");
 	}
 	
 }
