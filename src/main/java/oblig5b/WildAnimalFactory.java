@@ -8,19 +8,19 @@ import java.time.LocalDate;
  */
 public final class WildAnimalFactory {
 
-	public ScandinavianWildAnimal newMaleBear(String norName, String latName, LocalDate arrivalDate, String name,
+	public static ScandinavianWildAnimal newMaleBear(LocalDate arrivalDate, String name,
 			LocalDate dateOfBirth, String address) {
-		return new MaleIndividual(norName, latName, "Ursidae", arrivalDate, name, dateOfBirth, true, address);
+		return new MaleIndividual("Bjørn", "Ursus arctos", "Ursidae", arrivalDate, name, dateOfBirth, true, address);
 	}
 
-	public ScandinavianWildAnimal newFemaleWolf(String norName, String latName, LocalDate arrivalDate, String name,
+	public static ScandinavianWildAnimal newFemaleWolf(LocalDate arrivalDate, String name,
 			LocalDate dateOfBirth, String address, int noLitters) {
-		return new FemaleIndividual(norName, latName, "Canidae", arrivalDate, name, dateOfBirth, true, address, noLitters);
+		return new FemaleIndividual("Ulv", "Canis lupus", "Canidae", arrivalDate, name, dateOfBirth, true, address, noLitters);
 	}
 
-	public ScandinavianWildAnimal newMaleWolf(String norName, String latName, LocalDate arrivalDate, String name,
+	public static ScandinavianWildAnimal newMaleWolf(LocalDate arrivalDate, String name,
 			LocalDate dateOfBirth, String address) {
-		return new MaleIndividual(norName, latName, "Canidae", arrivalDate, name, dateOfBirth, true, address);
+		return new MaleIndividual("Ulv", "Canis lupus", "Canidae", arrivalDate, name, dateOfBirth, true, address);
 	}
 
 }
