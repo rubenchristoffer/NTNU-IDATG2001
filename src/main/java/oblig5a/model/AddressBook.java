@@ -1,9 +1,10 @@
 package oblig5a.model;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Iterator;
 
-public interface AddressBook extends Iterable<ContactDetails> {
+public interface AddressBook extends Serializable, Iterable<ContactDetails> {
 
 	/**
 	   * Add a new contact to the address book.
@@ -28,5 +29,10 @@ public interface AddressBook extends Iterable<ContactDetails> {
 	Collection<ContactDetails> getAllContacts();
 
 	Iterator<ContactDetails> iterator();
+	
+	/**
+	 * This will dispose of any resources used for handling AddressBook.
+	 */
+	default void dispose() {}
 
 }

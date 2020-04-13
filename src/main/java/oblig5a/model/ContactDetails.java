@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
@@ -18,6 +19,7 @@ import javax.persistence.Table;
 @Table
 public class ContactDetails implements Comparable<ContactDetails>, Serializable {
 
+	@Id
 	@Column
 	private String phone;
 	

@@ -1,5 +1,8 @@
 /bin/
 /target/
+contactsdb/
+
 logs/
 dependency-reduced-pom.xml
 addressbook.dat
+*.log
