@@ -46,9 +46,9 @@ public class MemberArchiveTest {
 		int id3 = memberArchive.addMember(person3, date3);
 		int id4 = memberArchive.addMember(person4, date4);
 
-		memberArchive.registerPoints(id2, (int) MemberArchive.SILVER_LIMIT + 1);
-		memberArchive.registerPoints(id3, (int) MemberArchive.SILVER_LIMIT + 1);
-		memberArchive.registerPoints(id4, (int) MemberArchive.GOLD_LIMIT);
+		memberArchive.registerPoints(id2, MemberArchive.SILVER_LIMIT + 1);
+		memberArchive.registerPoints(id3, MemberArchive.SILVER_LIMIT + 1);
+		memberArchive.registerPoints(id4, MemberArchive.GOLD_LIMIT);
 
 		memberArchive.checkMembers(emulatedTodayDate);
 

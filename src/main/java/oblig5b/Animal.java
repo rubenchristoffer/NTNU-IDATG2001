@@ -91,6 +91,7 @@ abstract class Animal {
 	 *
 	 * @return a string representation of the animal.
 	 */
+	@Override
 	public String toString() {
 		return "Norsk navn: " + this.norName + "\nLatinsk navn og familie: " + this.latName + ", " + this.latFamily
 				+ "\nAdresse: " + this.address + "\nDato: " + this.arrivalDate;

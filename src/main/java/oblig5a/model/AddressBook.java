@@ -28,6 +28,7 @@ public interface AddressBook extends Serializable, Iterable<ContactDetails> {
 	 */
 	Collection<ContactDetails> getAllContacts();
 
+	@Override
 	Iterator<ContactDetails> iterator();
 
 	/**

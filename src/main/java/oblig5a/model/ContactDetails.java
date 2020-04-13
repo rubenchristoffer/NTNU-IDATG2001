@@ -150,6 +150,7 @@ public class ContactDetails implements Comparable<ContactDetails>, Serializable 
 	 * @return true if the argument object is a set of contact details with matching
 	 *         attributes.
 	 */
+	@Override
 	public boolean equals(Object other) {
 		if (other instanceof ContactDetails) {
 			ContactDetails otherDetails = (ContactDetails) other;
@@ -168,6 +169,7 @@ public class ContactDetails implements Comparable<ContactDetails>, Serializable 
 	 * @return a negative integer if this comes before the parameter, zero if they
 	 *         are equal and a positive integer if this comes after the second.
 	 */
+	@Override
 	public int compareTo(ContactDetails otherDetails) {
 		int comparison = name.compareTo(otherDetails.getName());
 		if (comparison != 0) {
@@ -186,6 +188,7 @@ public class ContactDetails implements Comparable<ContactDetails>, Serializable 
 	 *
 	 * @return A hashcode for ContactDetails.
 	 */
+	@Override
 	public int hashCode() {
 		int code = 17;
 		code = 37 * code + name.hashCode();

@@ -1,13 +1,15 @@
 package oblig5b;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 /**
  * Represents one specific individual animal in the Zoo. All individuals in the
  * Zoo have a given name, a date of birth, and it is also tagged whether or not
  * the animal is dangerous for the visiting guests of the Zoo.
  */
-abstract class Individual extends Animal {
+abstract class Individual extends Animal implements ScandinavianWildAnimal {
+
 	private String name;
 	private LocalDate dateOfBirth;
 	private boolean isDangerous;
@@ -38,8 +40,24 @@ abstract class Individual extends Animal {
 	 *
 	 * @return the name of the individual.
 	 */
+	@Override
 	public String getName() {
 		return name;
+	}
+
+	@Override
+	public int getAge() {
+		return (int) ChronoUnit.YEARS.between(getDateOfBirth(), LocalDate.now());
+	}
+
+	@Override
+	public void move(String newAddress) {
+		setAddress(newAddress);
+	}
+
+	@Override
+	public String printInfo() {
+		return toString();
 	}
 
 	/**
@@ -56,6 +74,7 @@ abstract class Individual extends Animal {
 	 *
 	 * @return the date of birth.
 	 */
+	@Override
 	public LocalDate getDateOfBirth() {
 		return dateOfBirth;
 	}
