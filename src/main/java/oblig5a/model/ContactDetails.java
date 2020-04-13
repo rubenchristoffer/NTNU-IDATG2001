@@ -12,28 +12,30 @@ import javax.persistence.Table;
  * the example in the book "Objects first with Java" by David J. Barnes and
  * Michael Kölling.
  *
- * @author David J. Barnes and Michael Kölling and Arne Styve and R.C. Hegland-Antonsen
+ * @author David J. Barnes and Michael Kölling and Arne Styve and R.C.
+ *         Hegland-Antonsen
  * @version 2020.03.16
  */
 @Entity
-@Table
+@Table(name = "oblig5a_ContactDetails")
 public class ContactDetails implements Comparable<ContactDetails>, Serializable {
 
 	@Id
 	@Column
 	private String phone;
-	
+
 	@Column
 	private String name;
-	
+
 	@Column
 	private String address;
 
 	/**
 	 * No-arg constructor as according to JavaBean
 	 */
-	protected ContactDetails() {}
-	
+	protected ContactDetails() {
+	}
+
 	/**
 	 * Set up the contact details. All details are trimmed to remove trailing white
 	 * space.

@@ -6,9 +6,9 @@ import org.testfx.framework.junit5.ApplicationTest;
 import javafx.stage.Stage;
 
 /**
- * Very simple test for JavaFX window
- * that currently only tests by launching
- * and clicking on table.
+ * Very simple test for JavaFX window that currently only tests by launching and
+ * clicking on table.
+ * 
  * @author Ruben Christoffer
  */
 public class Oblig4BTest extends ApplicationTest {
@@ -18,10 +18,10 @@ public class Oblig4BTest extends ApplicationTest {
 		Oblig4B oblig4b = new Oblig4B();
 		oblig4b.start(stage);
 	}
-	
+
 	@Test
-	public void testStartupScene () {
+	public void testStartupScene() {
 		clickOn("#table");
 	}
-	
+
 }

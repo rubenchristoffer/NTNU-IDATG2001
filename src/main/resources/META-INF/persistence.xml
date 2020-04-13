@@ -27,4 +27,17 @@
 			<property name="eclipselink.logging.level" value="INFO"/>
 		</properties>
 	</persistence-unit>
+	<persistence-unit name="contacts-pu-remoteserver" transaction-type="RESOURCE_LOCAL">
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<exclude-unlisted-classes>false</exclude-unlisted-classes>
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+			<!-- NOTE: The following username and password are NOT the real values -->
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://mysql-ait.stud.idi.ntnu.no:3306/USERNAME"/>
+			<property name="javax.persistence.jdbc.user" value="USERNAME"/>
+			<property name="javax.persistence.jdbc.password" value="PASSWORD"/>
+			<property name="eclipselink.ddl-generation" value="create-tables"/>
+			<property name="eclipselink.logging.level" value="INFO"/>
+		</properties>
+	</persistence-unit>
 </persistence>

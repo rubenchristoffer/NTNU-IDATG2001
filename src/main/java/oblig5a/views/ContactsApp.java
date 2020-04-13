@@ -61,12 +61,12 @@ public class ContactsApp extends Application {
 	@Override
 	public void init() throws Exception {
 		super.init();
-		
+
 		// Initialise the main controller
 		this.mainController = new MainController();
 
 		// Initialise the Address Book from a file
-		this.addressBook = new AddressBookDBHandler(Persistence.createEntityManagerFactory("contacts-pu-localserver"));
+		this.addressBook = new AddressBookDBHandler(Persistence.createEntityManagerFactory("contacts-pu"));
 	}
 
 	@Override
@@ -111,7 +111,7 @@ public class ContactsApp extends Application {
 	public void stop() {
 		// Dispose resources used by addressBook
 		addressBook.dispose();
-		
+
 		// Exit the application
 		System.exit(0);
 	}
