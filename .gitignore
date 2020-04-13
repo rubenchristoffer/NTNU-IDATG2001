@@ -2,3 +2,4 @@
 /target/
 logs/
 dependency-reduced-pom.xml
+addressbook.dat
